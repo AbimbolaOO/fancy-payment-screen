@@ -1,0 +1,23 @@
+import styled from '@emotion/styled';
+
+const AppLayout: React.FC<IAppLayout> = ({ children }) => {
+  return <BackgroundContainer>{children}</BackgroundContainer>;
+};
+
+export default AppLayout;
+
+interface IAppLayout {
+  children: React.ReactNode;
+}
+
+const BackgroundContainer = styled.div`
+  display: grid;
+  place-items: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-image: url('/static/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-color: ${({ theme }) => theme.palette.tertiaryBgColor};
+  background-size: 150%;
+  background-position: right 98% top 53%;
+`;
