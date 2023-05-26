@@ -44,6 +44,14 @@ const ContentContainer = styled.div`
     grid-column: 2/3;
     grid-row: 1/5;
   }
+
+  @media screen and (max-width: 1200px) {
+    width: 80vw;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 100vw;
+  }
 `;
 
 const RenderCardDetailsBackGround = styled(Box)`

@@ -20,4 +20,13 @@ const BackgroundContainer = styled.div`
   background-color: ${({ theme }) => theme.palette.tertiaryBgColor};
   background-size: 150%;
   background-position: right 98% top 53%;
+
+  @media screen and (max-width: 1000px) {
+    background-repeat: contain;
+  }
+
+  @media screen and (max-width: 900px) {
+    background-size: 200%;
+    background-position: right 98% top 40%;
+  }
 `;
