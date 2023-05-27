@@ -61,6 +61,7 @@ export const InputFieldDescription = styled(TextBox)`
 export const DateInput = styled(Input)`
   padding: 0.8rem 1rem;
   width: 7rem;
+  height: fit-content;
 `;
 
 export const FormError = styled.div`
@@ -85,6 +86,7 @@ export const RightPlaceHolderCardIcon = styled.img`
 
 export const FormBox = styled.div<IFormBox>`
   display: grid;
+  gap: ${({ direction }) => (direction === 'column' ? '1rem' : 'auto')};
   grid-template-columns: ${({ direction }) =>
     direction === 'column' ? '1fr' : '1fr 1fr'};
 `;
