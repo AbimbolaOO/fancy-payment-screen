@@ -4,13 +4,19 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import {
-  FormBox,
-  FormError,
-  Input,
-  InputFieldLabel,
-  LeftPlaceHolderCardIcon,
-  RightPlaceHolderCardIcon,
+    FormBox, FormError, Input, InputFieldLabel, LeftPlaceHolderCardIcon, RightPlaceHolderCardIcon
 } from './Input';
+
+const maxlenghtSetter = (id: string) => {
+  switch (id) {
+    case 'cardNo':
+      return 16;
+    case 'cvv':
+      return 3;
+    default:
+      return 255;
+  }
+};
 
 export const InputField: React.FC<IInputField> = ({
   type,
@@ -31,6 +37,7 @@ export const InputField: React.FC<IInputField> = ({
 
       <InputContainer>
         <Input
+          maxLength={maxlenghtSetter(id)}
           type={type}
           placeholder={placeholder}
           id={id}

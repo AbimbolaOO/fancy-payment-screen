@@ -19,6 +19,7 @@ export const DateInputField: React.FC<IDateInputField> = ({
       <InputFieldLabel id={id[0]}>{children}</InputFieldLabel>
       <InnerFormBox>
         <DateInput
+          maxLength={2}
           type="text"
           id={id[0]}
           placeholder="DD"
@@ -30,6 +31,7 @@ export const DateInputField: React.FC<IDateInputField> = ({
         <Slash> / </Slash>
 
         <DateInput
+          maxLength={2}
           type="text"
           id={id[1]}
           placeholder="MM"

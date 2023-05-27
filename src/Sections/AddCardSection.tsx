@@ -5,12 +5,8 @@ import styled from '@emotion/styled';
 import Box from '../Components/Box';
 import { Button } from '../Components/Button';
 import {
-  DateInputField,
-  FormComponent,
-  InputField,
-  InputFieldDescription,
-  InputFieldLabel,
-  InputFieldTitle,
+    DateInputField, FormComponent, InputField, InputFieldDescription, InputFieldLabel,
+    InputFieldTitle
 } from '../Components/FormComponent';
 
 export const AddCardSection = () => {
@@ -20,9 +16,8 @@ export const AddCardSection = () => {
       .max(16)
       .required('Please provide your 16 digit card number'),
     cvv: Yup.string().min(3).max(3).required('Please provide your cvv'),
-    // expDate: Yup.date().required('Please provide your expiration date'),
-    month: Yup.string().min(1).max(12).required('Please provide your month'),
-    year: Yup.string().min(1).max(99).required('Please provide your year'),
+    month: Yup.number().min(1).max(12).required('Please provide your month'),
+    year: Yup.number().min(0).max(99).required('Please provide your year'),
     password: Yup.string().min(8).required('Please provide a your password'),
   });
 
@@ -31,7 +26,6 @@ export const AddCardSection = () => {
   type InitialValues = {
     cardNo: String;
     cvv: String;
-    // expDate: String;
     month: String;
     year: String;
     password: String;
@@ -40,7 +34,6 @@ export const AddCardSection = () => {
   const initialValues: InitialValues = {
     cardNo: '',
     cvv: '',
-    // expDate: '',
     month: '',
     year: '',
     password: '',
