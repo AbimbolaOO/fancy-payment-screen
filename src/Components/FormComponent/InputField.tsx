@@ -39,7 +39,7 @@ export const InputField: React.FC<IInputField> = ({
     }
     const value = e.target.value;
     if (id === 'cardNo') {
-      const strWithoutHyphen = value.replace(/   -   /g, '');
+      const strWithoutHyphen = value.replace(/ {3}- {3}/g, '');
       if (
         /^[0-9]*$/.test(strWithoutHyphen) &&
         value.length > 0 &&
