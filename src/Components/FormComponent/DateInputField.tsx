@@ -14,6 +14,17 @@ export const DateInputField: React.FC<IDateInputField> = ({
   children,
   textAlign,
 }) => {
+  const inputFieldOnchangeValidator = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = e.target.value;
+    if (/^[0-9]*$/.test(value) && value.length <= 2) {
+      onChange!(e);
+    } else {
+      e.target.value = value.slice(0, -1);
+    }
+  };
+
   return (
     <FormBox direction="row">
       <InputFieldLabel id={id[0]}>{children}</InputFieldLabel>
@@ -23,7 +34,7 @@ export const DateInputField: React.FC<IDateInputField> = ({
           type="text"
           id={id[0]}
           placeholder="DD"
-          onChange={onChange}
+          onChange={inputFieldOnchangeValidator}
           textAlign={textAlign}
         ></DateInput>
         {touch && error && <FormError>{error as string}</FormError>}
@@ -35,7 +46,7 @@ export const DateInputField: React.FC<IDateInputField> = ({
           type="text"
           id={id[1]}
           placeholder="MM"
-          onChange={onChange}
+          onChange={inputFieldOnchangeValidator}
           textAlign={textAlign}
         ></DateInput>
         {touch && error && <FormError>{error as string}</FormError>}

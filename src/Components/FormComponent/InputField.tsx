@@ -10,7 +10,7 @@ import {
 const maxlenghtSetter = (id: string) => {
   switch (id) {
     case 'cardNo':
-      return 16;
+      return 37;
     case 'cvv':
       return 3;
     default:
@@ -31,6 +31,32 @@ export const InputField: React.FC<IInputField> = ({
   direction,
   textAlign,
 }) => {
+  const inputFieldOnchangeValidator = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (type === 'password') {
+      return onChange!(e);
+    }
+    const value = e.target.value;
+    if (id === 'cardNo') {
+      const strWithoutHyphen = value.replace(/   -   /g, '');
+      if (
+        /^[0-9]*$/.test(strWithoutHyphen) &&
+        value.length > 0 &&
+        value.length <= maxlenghtSetter(id)
+      ) {
+        e.target.value = strWithoutHyphen.match(/.{1,4}/g)!.join('   -   ');
+        onChange!(e);
+      } else {
+        e.target.value = value.slice(0, -1);
+      }
+    } else if (/^[0-9]*$/.test(value) && value.length <= maxlenghtSetter(id)) {
+      onChange!(e);
+    } else {
+      e.target.value = value.slice(0, -1);
+    }
+  };
+
   return (
     <FormBox direction={direction}>
       <InputFieldLabel id={id}>{children}</InputFieldLabel>
@@ -41,7 +67,7 @@ export const InputField: React.FC<IInputField> = ({
           type={type}
           placeholder={placeholder}
           id={id}
-          onChange={onChange}
+          onChange={inputFieldOnchangeValidator}
           textAlign={textAlign}
           lpi={lpi}
         ></Input>

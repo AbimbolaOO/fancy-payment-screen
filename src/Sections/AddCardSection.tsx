@@ -12,8 +12,8 @@ import {
 export const AddCardSection = () => {
   const schema = Yup.object().shape({
     cardNo: Yup.string()
-      .min(16)
-      .max(16)
+      .min(37)
+      .max(37)
       .required('Please provide your 16 digit card number'),
     cvv: Yup.string().min(3).max(3).required('Please provide your cvv'),
     month: Yup.number().min(1).max(12).required('Please provide your month'),
