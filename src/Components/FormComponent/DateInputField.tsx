@@ -33,7 +33,7 @@ export const DateInputField: React.FC<IDateInputField> = ({
           maxLength={2}
           type="text"
           id={id[0]}
-          placeholder="DD"
+          placeholder="mm"
           onChange={inputFieldOnchangeValidator}
           textAlign={textAlign}
         ></DateInput>
@@ -45,7 +45,7 @@ export const DateInputField: React.FC<IDateInputField> = ({
           maxLength={2}
           type="text"
           id={id[1]}
-          placeholder="MM"
+          placeholder="yy"
           onChange={inputFieldOnchangeValidator}
           textAlign={textAlign}
         ></DateInput>
