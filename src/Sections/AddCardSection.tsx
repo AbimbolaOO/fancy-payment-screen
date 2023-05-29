@@ -57,7 +57,6 @@ export const AddCardSection = () => {
           rpi="/static/svg/verified-badge.svg"
           type="text"
           id="cardNo"
-          label={true}
           placeholder={'2412   -   7512   -   3412   -   3456'}
           direction="column"
         >
@@ -71,7 +70,6 @@ export const AddCardSection = () => {
           rpi="/static/svg/dots.svg"
           type="text"
           id="cvv"
-          label={true}
           placeholder="CVV"
           textAlign="center"
         >
@@ -94,7 +92,6 @@ export const AddCardSection = () => {
           rpi="/static/svg/dots.svg"
           type="password"
           id="password"
-          label={true}
           placeholder="Password"
         >
           <InputFieldTitle as="h1">password</InputFieldTitle>

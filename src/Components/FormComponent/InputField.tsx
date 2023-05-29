@@ -96,7 +96,6 @@ const InputContainer = styled.div`
 interface IInputField {
   type: string;
   id: string;
-  label?: boolean;
   placeholder?: string;
   touch?: boolean;
   error?: string | string[] | FormikErrors<any> | FormikErrors<any>[];
